@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_bits.c                                       :+:      :+:    :+:   */
+/*   swap_bits.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccloete <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/27 14:18:26 by ccloete           #+#    #+#             */
-/*   Updated: 2020/01/28 11:12:18 by ccloete          ###   ########.fr       */
+/*   Created: 2020/01/28 13:18:35 by ccloete           #+#    #+#             */
+/*   Updated: 2020/01/28 13:49:39 by ccloete          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,15 @@ void print_bits(unsigned char octet)
 	}
 }
 
-int main()
+unsigned char	swap_bits(unsigned char octet)
 {
-	unsigned char d;
-	
-	d = 2;
-	print_bits(d);
-	return(0);
+	return(octet >> 4 | octet << 4);
+}
+
+int main(void)
+{
+	print_bits(76);
+	write(1, "\n", 1);
+	print_bits(swap_bits(76));
+	return (0);
 }
